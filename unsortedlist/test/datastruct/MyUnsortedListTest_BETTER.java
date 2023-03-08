@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MyUnsortedListTest {
+public class MyUnsortedListTest_BETTER {
 	
 	private static MyUnsortedList<Integer> expectedList;
 	private static MyUnsortedList<Integer> actualList;
@@ -178,14 +178,14 @@ public class MyUnsortedListTest {
 		assertTrue("actualList is now Empty",actualList.isEmpty());
 				
 		// Test Exception
-		Exception exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+		Exception exception = assertThrows(EmptyListException.class, () -> {
 			actualList.popLast();
 	    });
 		assertNull(exception.getMessage());
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
-	public final void testPopLastEmptyListThrowsException() throws IndexOutOfBoundsException{
+	@Test(expected = EmptyListException.class)
+	public final void testPopLastEmptyListThrowsException() throws EmptyListException{
 		actualList.popLast();
 	}
 
